@@ -40,13 +40,14 @@
             }
         },
         watch: {//整个为一个对象，键是需要观察的表达式，值是对应回调函数
-            firstName: function (newValue, oldValue) {
+            firstName: function () {
                 console.log('watch')
                 this.methods()
             }
         },
         methods: {//methods将被混入到Vue实例中，可以直接通过VM实例访问这些方法，或者在指令表达式中使用。方法中的this自动绑定为Vue实例
             methods() {
+                // eslint-disable-next-line no-debugger
                 debugger
                 console.log('****************')
             },
