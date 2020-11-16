@@ -48,7 +48,7 @@
         methods: {//methods将被混入到Vue实例中，可以直接通过VM实例访问这些方法，或者在指令表达式中使用。方法中的this自动绑定为Vue实例
             methods() {
                 // eslint-disable-next-line no-debugger
-                debugger
+                this.$refs.xxx1._data.zam = 'hello'
                 console.log('****************')
             },
             methods1: function () {

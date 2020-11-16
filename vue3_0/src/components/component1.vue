@@ -1,14 +1,20 @@
 <template>
     <div>
         <h1>{{ msg }}</h1>
+        <h1>{{ zam }}</h1>
         <button @click="methods">子组件按钮</button>
+        <hello msg="优秀"></hello>
     </div>
 </template>
 
 <script>
+    import hello from './component2.vue'
+
     export default {
         name: 'component1',
-        comments: {},
+        components: {
+            hello
+        },
         props: {
             msg: {
                 type: String, //指定传入的类型
