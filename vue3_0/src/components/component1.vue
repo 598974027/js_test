@@ -42,34 +42,24 @@
         computed: {},
         watch: {},
         beforeCreate() {
-            console.log('beforeCreate' + this.zam)
         },
         created() {
-            console.log('created' + this.zam)
         },
         beforeMount() {
-            console.log('beforeMount' + this.zam)
         },
         mounted() {
-            console.log('mounted' + this.zam)
         },
         beforeUpdate() {
-            console.log('beforeUpdate' + this.zam)
         },
         updated() {
-            console.log('updated' + this.zam)
         },
         activated() {
-            console.log('activated' + this.zam)
         },
         deactivated() {
-            console.log('deactivated' + this.zam)
         },
         beforeDestroy() {
-            console.log('beforeDestroy' + this.zam)
         },
         destroyed() {
-            console.log('destroyed' + this.zam)
         }
     }
 </script>

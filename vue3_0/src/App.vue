@@ -4,10 +4,10 @@
         <span>{{ lastName}} </span><br/>
         <span>{{ fullName}} </span>
         <!-- 父组件给子组件传值 -->
-        <xxx ref="xxx1" msg="xxxxxx" @childEvent="methods2"/>
+        <xxx ref="xxx1" msg="xxxxxx" @childEvent="method2"/>
         <!-- 父组件给子组件传变量 -->
-        <xxx ref="xxx2" :msg="lastName" v-on:childEvent="methods2"/>
-        <button @click="methods1">按钮</button>
+        <xxx ref="xxx2" :msg="lastName" v-on:childEvent="method2"/>
+        <button @click="method1">按钮</button>
     </div>
 </template>
 
@@ -42,23 +42,23 @@
         watch: {//整个为一个对象，键是需要观察的表达式，值是对应回调函数
             firstName: function () {
                 console.log('watch')
-                this.methods()
+                this.method()
             }
         },
         methods: {//methods将被混入到Vue实例中，可以直接通过VM实例访问这些方法，或者在指令表达式中使用。方法中的this自动绑定为Vue实例
-            methods() {
+            method() {
                 // eslint-disable-next-line no-debugger
                 this.$refs.xxx1._data.zam = 'hello'
                 console.log('****************')
             },
-            methods1: function () {
-                console.log('methods1')
+            method1: function () {
+                console.log('method1')
                 this.firstName = new Date()
                 // this.lastName = Math.floor(Math.random() * 10)
             },
-            methods2: function (data) {
+            method2: function (data) {
                 alert(this.$refs.xxx1._data.zam)
-                console.log('methods2')
+                console.log('method2')
                 this.lastName = data
             }
         },
