@@ -1,18 +1,75 @@
 <template>
     <div id="app">
-        <span ref="mySpan">{{ firstName}} </span><br/>
-        <span>{{ lastName}} </span><br/>
-        <span>{{ fullName}} </span>
+        <!--        <span ref="mySpan">{{ firstName}} </span><br/>-->
+        <!--        <span>{{ lastName}} </span><br/>-->
+        <!--        <span>{{ fullName}} </span>-->
+
         <!-- 父组件给子组件传值 -->
-        <xxx ref="xxx1" msg="xxxxxx" @childEvent="method2"/>
+        <!--        <xxx ref="xxx1" msg="xxxxxx" @childEvent="method2"/>-->
         <!-- 父组件给子组件传变量 -->
-        <xxx ref="xxx2" :msg="lastName" v-on:childEvent="method2"/>
-        <button @click="method1">按钮</button>
+        <!--        <xxx ref="xxx2" :msg="lastName" v-on:childEvent="method2"/>-->
+        <!--        <button @click="method1">按钮</button>-->
+
+        <child>
+            <div class="tmpl" slot="up">
+                <span>菜单1</span>
+                <span>菜单2</span>
+                <span>菜单3</span>
+                <span>菜单4</span>
+                <span>菜单5</span>
+                <span>菜单6</span>
+            </div>
+            <div class="tmpl" slot="down">
+                <span>菜单-1</span>
+                <span>菜单-2</span>
+                <span>菜单-3</span>
+                <span>菜单-4</span>
+                <span>菜单-5</span>
+                <span>菜单-6</span>
+            </div>
+            <div class="tmpl">
+                <span>菜单->1</span>
+                <span>菜单->2</span>
+                <span>菜单->3</span>
+                <span>菜单->4</span>
+                <span>菜单->5</span>
+                <span>菜单->6</span>
+            </div>
+        </child>
+        <!--第一次使用：用span展示数据-->
+        <child>
+            <template slot="up" slot-scope="user">
+                <div class="tmpl">
+                    <!--eslint-disable-next-line-->
+                    <span v-for="item in user.data">{{ item }}</span>
+                </div>
+            </template>
+        </child>
+        <!--第二次使用：用列表展示数据-->
+        <child>
+            <template slot="down" slot-scope="user">
+                <ul>
+                    <!--eslint-disable-next-line-->
+                    <li v-for="item in user.data">{{ item }}</li>
+                </ul>
+            </template>
+        </child>
+        <!--第三次使用：直接显示数据-->
+        <child>
+            <template slot-scope="user">
+                {{ user.data }}
+            </template>
+        </child>
+        <!--第四次使用：不使用其提供的数据, 作用域插槽退变成匿名插槽-->
+        <child>
+            我就是模板
+        </child>
     </div>
 </template>
 
 <script>
     import xxx from './components/component1.vue'
+    import child from './components/component3.vue'
 
     /**
      * 计算属性和属性监听的区别：
@@ -23,7 +80,9 @@
     export default {
         name: 'App',
         components: {//该组件的子实例
-            xxx
+            // eslint-disable-next-line vue/no-unused-components
+            xxx,
+            child
         },
         props: {//用于父子组件的eventbus传值，是数组或对象，props的成员是子组件接收的来自父组件的数据
         },
