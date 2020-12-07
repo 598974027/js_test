@@ -1,75 +1,107 @@
 <template>
     <div id="app">
-        <!--        <span ref="mySpan">{{ firstName}} </span><br/>-->
-        <!--        <span>{{ lastName}} </span><br/>-->
-        <!--        <span>{{ fullName}} </span>-->
+        <!--        <span ref="mySpan">{{ firstName }} </span><br/>
+                <span>{{ lastName }} </span><br/>
+                <span>{{ fullName }} </span>
 
-        <!-- 父组件给子组件传值 -->
-        <!--        <xxx ref="xxx1" msg="xxxxxx" @childEvent="method2"/>-->
-        <!-- 父组件给子组件传变量 -->
-        <!--        <xxx ref="xxx2" :msg="lastName" v-on:childEvent="method2"/>-->
-        <!--        <button @click="method1">按钮</button>-->
+                &lt;!&ndash; 父组件给子组件传值 &ndash;&gt;
+                <xxx ref="xxx1" msg="xxxxxx" @childEvent="method2"/>
+                &lt;!&ndash; 父组件给子组件传变量 &ndash;&gt;
+                <xxx ref="xxx2" :msg="lastName" v-on:childEvent="method2"/>
+                <button @click="method1">按钮</button>-->
 
-        <child>
-            <div class="tmpl" slot="up">
-                <span>菜单1</span>
-                <span>菜单2</span>
-                <span>菜单3</span>
-                <span>菜单4</span>
-                <span>菜单5</span>
-                <span>菜单6</span>
-            </div>
-            <div class="tmpl" slot="down">
-                <span>菜单-1</span>
-                <span>菜单-2</span>
-                <span>菜单-3</span>
-                <span>菜单-4</span>
-                <span>菜单-5</span>
-                <span>菜单-6</span>
-            </div>
-            <div class="tmpl">
-                <span>菜单->1</span>
-                <span>菜单->2</span>
-                <span>菜单->3</span>
-                <span>菜单->4</span>
-                <span>菜单->5</span>
-                <span>菜单->6</span>
-            </div>
-        </child>
-        <!--第一次使用：用span展示数据-->
-        <child>
-            <template slot="up" slot-scope="user">
-                <div class="tmpl">
-                    <!--eslint-disable-next-line-->
-                    <span v-for="item in user.data">{{ item }}</span>
-                </div>
-            </template>
-        </child>
-        <!--第二次使用：用列表展示数据-->
-        <child>
-            <template slot="down" slot-scope="user">
-                <ul>
-                    <!--eslint-disable-next-line-->
-                    <li v-for="item in user.data">{{ item }}</li>
-                </ul>
-            </template>
-        </child>
-        <!--第三次使用：直接显示数据-->
-        <child>
-            <template slot-scope="user">
-                {{ user.data }}
-            </template>
-        </child>
-        <!--第四次使用：不使用其提供的数据, 作用域插槽退变成匿名插槽-->
-        <child>
-            我就是模板
-        </child>
+        <!--        <child>
+                    <div class="tmpl" slot="up">
+                        <span>菜单1</span>
+                        <span>菜单2</span>
+                        <span>菜单3</span>
+                        <span>菜单4</span>
+                        <span>菜单5</span>
+                        <span>菜单6</span>
+                    </div>
+                    <div class="tmpl" slot="down">
+                        <span>菜单-1</span>
+                        <span>菜单-2</span>
+                        <span>菜单-3</span>
+                        <span>菜单-4</span>
+                        <span>菜单-5</span>
+                        <span>菜单-6</span>
+                    </div>
+                    <div class="tmpl">
+                        <span>菜单->1</span>
+                        <span>菜单->2</span>
+                        <span>菜单->3</span>
+                        <span>菜单->4</span>
+                        <span>菜单->5</span>
+                        <span>菜单->6</span>
+                    </div>
+                </child>
+                &lt;!&ndash;第一次使用：用span展示数据&ndash;&gt;
+                <child>
+                    <template slot="up" slot-scope="user">
+                        <div class="tmpl">
+                            &lt;!&ndash;eslint-disable-next-line&ndash;&gt;
+                            <span v-for="item in user.data">{{ item }}</span>
+                        </div>
+                    </template>
+                </child>
+                &lt;!&ndash;第二次使用：用列表展示数据&ndash;&gt;
+                <child>
+                    <template slot="down" slot-scope="user">
+                        <ul>
+                            &lt;!&ndash;eslint-disable-next-line&ndash;&gt;
+                            <li v-for="item in user.data">{{ item }}</li>
+                        </ul>
+                    </template>
+                </child>
+                &lt;!&ndash;第三次使用：直接显示数据&ndash;&gt;
+                <child>
+                    <template slot-scope="user">
+                        {{ user.data }}
+                    </template>
+                </child>
+                &lt;!&ndash;第四次使用：不使用其提供的数据, 作用域插槽退变成匿名插槽&ndash;&gt;
+                <child>
+                    我就是模板
+                </child>-->
+
+        <!--        <h3>{{ this.$store.state.count }}</h3>-->
+        <!--        <h3>{{ this.$store.state.changeShow }}</h3>-->
+        <!--        <h3>{{ this.$store.getters.getCount }}</h3>-->
+        <!--        <h3>{{ this.$store.getters.isShow }}</h3>-->
+        <!--        <h3>{{ abc }}</h3>-->
+        <!--        <h3>{{ getCount }}</h3>-->
+        <!--        <h3>{{ isShow }}</h3>-->
+        <!--        <button @click="add">+</button>-->
+        <!--        <button @click="del">-</button>-->
+
+        <router-link to="/p1">跳转1</router-link>
+        <br/>
+        <router-link to="/p2">跳转2</router-link>
+        <br/>
+        <router-link :to="{ name: 't1'}">跳转</router-link>
+        <br/>
+        <router-link to="/p3/k1">跳转3</router-link>
+        <br/>
+        <router-link to="/p4/bob">跳转4</router-link>
+        <br/>
+        <router-link to="/p4/evan#foo">/p4/evan#foo</router-link>
+        <br/>
+        <router-link :to="{ path: '/p4/evan', query: { foo: 'bar', baz: 'qux' }}">/p4/evan?foo=bar&baz=qux</router-link>
+        <br/>
+        <router-link :to="{ name: 'xxx', params: { username: 'lbj' }}">xxx</router-link>
+        <br/>
+        <router-view></router-view>
+
     </div>
 </template>
 
 <script>
     import xxx from './components/component1.vue'
     import child from './components/component3.vue'
+
+    //使用辅助函数
+    import {mapState, mapGetters, mapMutations, mapActions} from 'vuex'
 
     /**
      * 计算属性和属性监听的区别：
@@ -82,6 +114,7 @@
         components: {//该组件的子实例
             // eslint-disable-next-line vue/no-unused-components
             xxx,
+            // eslint-disable-next-line vue/no-unused-components
             child
         },
         props: {//用于父子组件的eventbus传值，是数组或对象，props的成员是子组件接收的来自父组件的数据
@@ -96,7 +129,16 @@
             fullName: function () {
                 console.log('computed')
                 return this.firstName + ' ' + this.lastName
-            }
+            },
+            ...mapState({
+                abc: state => state.count
+            }),
+            ...mapGetters([
+                'getCount',
+                'isShow'
+            ]),
+            ...mapMutations([]),
+            ...mapActions([])
         },
         watch: {//整个为一个对象，键是需要观察的表达式，值是对应回调函数
             firstName: function () {
@@ -119,37 +161,45 @@
                 alert(this.$refs.xxx1._data.zam)
                 console.log('method2')
                 this.lastName = data
-            }
+            },
+            add: function () {
+                this.$store.commit('addCount', 1)
+                this.$store.dispatch('getAddCount', 1)
+            },
+            del: function () {
+                this.$store.commit('delCount', 1)
+                this.$store.dispatch('getDelCount', 1)
+            },
         },
         beforeCreate() {
-            console.log('beforeCreate' + this.firstName)
+            // console.log('beforeCreate' + this.firstName)
         },
         created() {
-            console.log('created' + this.firstName)
+            // console.log('created' + this.firstName)
         },
         beforeMount() {
-            console.log('beforeMount' + this.firstName)
+            // console.log('beforeMount' + this.firstName)
         },
         mounted() {
-            console.log('mounted' + this.firstName)
+            // console.log('mounted' + this.firstName)
         },
         beforeUpdate() {
-            console.log('beforeUpdate' + this.firstName)
+            // console.log('beforeUpdate' + this.firstName)
         },
         updated() {
-            console.log('updated' + this.firstName)
+            // console.log('updated' + this.firstName)
         },
         activated() {//keep-alive 组件激活时调用
-            console.log('activated' + this.firstName)
+            // console.log('activated' + this.firstName)
         },
         deactivated() {//keep-alive 组件停用时调用
-            console.log('deactivated' + this.firstName)
+            // console.log('deactivated' + this.firstName)
         },
         beforeDestroy() {
-            console.log('beforeDestroy' + this.firstName)
+            // console.log('beforeDestroy' + this.firstName)
         },
         destroyed() {
-            console.log('destroyed' + this.firstName)
+            // console.log('destroyed' + this.firstName)
         }
     }
 </script>
