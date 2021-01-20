@@ -1,69 +1,62 @@
 <template>
     <div id="app">
-        <!--        <span ref="mySpan">{{ firstName }} </span><br/>
-                <span>{{ lastName }} </span><br/>
-                <span>{{ fullName }} </span>
+        <!--        <span ref="mySpan">{{ firstName }} </span><br/>-->
+        <!--        <span>{{ lastName }} </span><br/>-->
+        <!--        <span>{{ fullName }} </span>-->
+        <!--        <span>父组件给子组件传值 </span>-->
+        <!--        <xxx ref="xxx1" msg="xxxxxx" @childEvent="method2"/>-->
+        <!--        <span>父组件给子组件传变量  </span>-->
+        <!--        <xxx ref="xxx2" :msg="lastName" v-on:childEvent="method2"/>-->
+        <!--        <button @click="method1">按钮</button>-->
 
-                &lt;!&ndash; 父组件给子组件传值 &ndash;&gt;
-                <xxx ref="xxx1" msg="xxxxxx" @childEvent="method2"/>
-                &lt;!&ndash; 父组件给子组件传变量 &ndash;&gt;
-                <xxx ref="xxx2" :msg="lastName" v-on:childEvent="method2"/>
-                <button @click="method1">按钮</button>-->
-
-        <!--        <child>
-                    <div class="tmpl" slot="up">
-                        <span>菜单1</span>
-                        <span>菜单2</span>
-                        <span>菜单3</span>
-                        <span>菜单4</span>
-                        <span>菜单5</span>
-                        <span>菜单6</span>
-                    </div>
-                    <div class="tmpl" slot="down">
-                        <span>菜单-1</span>
-                        <span>菜单-2</span>
-                        <span>菜单-3</span>
-                        <span>菜单-4</span>
-                        <span>菜单-5</span>
-                        <span>菜单-6</span>
-                    </div>
-                    <div class="tmpl">
-                        <span>菜单->1</span>
-                        <span>菜单->2</span>
-                        <span>菜单->3</span>
-                        <span>菜单->4</span>
-                        <span>菜单->5</span>
-                        <span>菜单->6</span>
-                    </div>
-                </child>
-                &lt;!&ndash;第一次使用：用span展示数据&ndash;&gt;
-                <child>
-                    <template slot="up" slot-scope="user">
-                        <div class="tmpl">
-                            &lt;!&ndash;eslint-disable-next-line&ndash;&gt;
-                            <span v-for="item in user.data">{{ item }}</span>
-                        </div>
-                    </template>
-                </child>
-                &lt;!&ndash;第二次使用：用列表展示数据&ndash;&gt;
-                <child>
-                    <template slot="down" slot-scope="user">
-                        <ul>
-                            &lt;!&ndash;eslint-disable-next-line&ndash;&gt;
-                            <li v-for="item in user.data">{{ item }}</li>
-                        </ul>
-                    </template>
-                </child>
-                &lt;!&ndash;第三次使用：直接显示数据&ndash;&gt;
-                <child>
-                    <template slot-scope="user">
-                        {{ user.data }}
-                    </template>
-                </child>
-                &lt;!&ndash;第四次使用：不使用其提供的数据, 作用域插槽退变成匿名插槽&ndash;&gt;
-                <child>
-                    我就是模板
-                </child>-->
+        <!--        <child>-->
+        <!--            <div class="tmpl" slot="up">-->
+        <!--                <span>菜单1</span>-->
+        <!--                <span>菜单2</span>-->
+        <!--                <span>菜单3</span>-->
+        <!--                <span>菜单4</span>-->
+        <!--                <span>菜单5</span>-->
+        <!--                <span>菜单6</span>-->
+        <!--            </div>-->
+        <!--            <div class="tmpl" slot="down">-->
+        <!--                <span>菜单-1</span>-->
+        <!--                <span>菜单-2</span>-->
+        <!--                <span>菜单-3</span>-->
+        <!--                <span>菜单-4</span>-->
+        <!--                <span>菜单-5</span>-->
+        <!--                <span>菜单-6</span>-->
+        <!--            </div>-->
+        <!--            <div class="tmpl">-->
+        <!--                <span>菜单->1</span>-->
+        <!--                <span>菜单->2</span>-->
+        <!--                <span>菜单->3</span>-->
+        <!--                <span>菜单->4</span>-->
+        <!--                <span>菜单->5</span>-->
+        <!--                <span>菜单->6</span>-->
+        <!--            </div>-->
+        <!--        </child>-->
+        <!--        <child>-->
+        <!--            <template slot="up" slot-scope="user">-->
+        <!--                <div class="tmpl">-->
+        <!--                    <span v-for="item in user.data">{{ item }}</span>-->
+        <!--                </div>-->
+        <!--            </template>-->
+        <!--        </child>-->
+        <!--        <child>-->
+        <!--            <template slot="down" slot-scope="user">-->
+        <!--                <ul>-->
+        <!--                    <li v-for="item in user.data">{{ item }}</li>-->
+        <!--                </ul>-->
+        <!--            </template>-->
+        <!--        </child>-->
+        <!--        <child>-->
+        <!--            <template slot-scope="user">-->
+        <!--                {{ user.data }}-->
+        <!--            </template>-->
+        <!--        </child>-->
+        <!--        <child>-->
+        <!--            我就是模板-->
+        <!--        </child>-->
 
         <!--        <h3>{{ this.$store.state.count }}</h3>-->
         <!--        <h3>{{ this.$store.state.changeShow }}</h3>-->
@@ -75,30 +68,32 @@
         <!--        <button @click="add">+</button>-->
         <!--        <button @click="del">-</button>-->
 
-        <router-link to="/p1">跳转1</router-link>
-        <br/>
-        <router-link to="/p2">跳转2</router-link>
-        <br/>
-        <router-link :to="{ name: 't1'}">跳转</router-link>
-        <br/>
-        <router-link to="/p3/k1">跳转3</router-link>
-        <br/>
-        <router-link to="/p4/bob">跳转4</router-link>
-        <br/>
-        <router-link to="/p4/evan#foo">/p4/evan#foo</router-link>
-        <br/>
-        <router-link :to="{ path: '/p4/evan', query: { foo: 'bar', baz: 'qux' }}">/p4/evan?foo=bar&baz=qux</router-link>
-        <br/>
-        <router-link :to="{ name: 'xxx', params: { username: 'lbj' }}">xxx</router-link>
-        <br/>
-        <router-view></router-view>
+        <!--        <router-link to="/p1">跳转1</router-link>-->
+        <!--        <br/>-->
+        <!--        <router-link to="/p2">跳转2</router-link>-->
+        <!--        <br/>-->
+        <!--        <router-link :to="{ name: 't1'}">跳转</router-link>-->
+        <!--        <br/>-->
+        <!--        <router-link to="/p3/k1">跳转3</router-link>-->
+        <!--        <br/>-->
+        <!--        <router-link to="/p4/bob">跳转4</router-link>-->
+        <!--        <br/>-->
+        <!--        <router-link to="/p4/evan#foo">/p4/evan#foo</router-link>-->
+        <!--        <br/>-->
+        <!--        <router-link :to="{ path: '/p4/evan', query: { foo: 'bar', baz: 'qux' }}">/p4/evan?foo=bar&baz=qux</router-link>-->
+        <!--        <br/>-->
+        <!--        <router-link :to="{ name: 'xxx', params: { username: 'lbj' }}">xxx</router-link>-->
+        <!--        <br/>-->
+        <!--        <router-view></router-view>-->
 
+        <lbj></lbj>
     </div>
 </template>
 
 <script>
     import xxx from './components/component1.vue'
     import child from './components/component3.vue'
+    import lbj from './components/component4.vue'
 
     //使用辅助函数
     import {mapState, mapGetters, mapMutations, mapActions} from 'vuex'
@@ -115,7 +110,8 @@
             // eslint-disable-next-line vue/no-unused-components
             xxx,
             // eslint-disable-next-line vue/no-unused-components
-            child
+            child,
+            lbj
         },
         props: {//用于父子组件的eventbus传值，是数组或对象，props的成员是子组件接收的来自父组件的数据
         },
